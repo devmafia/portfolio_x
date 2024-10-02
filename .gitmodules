@@ -1,0 +1,3 @@
+[submodule "django-chat-app"]
+    path = Django/django-chat-app+
+    url = https://github.com/devmafia/Django/django-chat-app.git
