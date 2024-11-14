@@ -4,7 +4,6 @@ import CallWidget from '../components/CallWidget';
 const AboutUs: React.FC = () => {
   return (
     <div className="container mx-auto p-6">
-      {/* Розділ Про нас */}
       <section className="mb-12">
         <h2 className="text-4xl font-bold mb-6">Про нас</h2>
 
@@ -16,7 +15,6 @@ const AboutUs: React.FC = () => {
         </p>
       </section>
 
-      {/* Наша місія та бачення */}
       <section className="mb-12 bg-gray-100 p-6 rounded-lg">
         <h3 className="text-3xl font-semibold mb-4">Наша місія та бачення</h3>
         <p className="text-lg mb-4">
@@ -27,7 +25,6 @@ const AboutUs: React.FC = () => {
         </p>
       </section>
 
-      {/* Чому обрати нас */}
       <section className="mb-12">
         <h3 className="text-3xl font-semibold mb-6">Чому обрати нас?</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -52,7 +49,6 @@ const AboutUs: React.FC = () => {
         </div>
       </section>
 
-      {/* Наша команда */}
       <section className="mb-12">
         <h3 className="text-3xl font-semibold mb-6">Познайомтесь з нашою командою</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -79,7 +75,6 @@ const AboutUs: React.FC = () => {
         </div>
       </section>
 
-      {/* Технології, які ми використовуємо */}
       <section className="mb-12 bg-gray-100 p-6 rounded-lg">
         <h3 className="text-3xl font-semibold mb-4">Технології, які ми використовуємо</h3>
         <p className="text-lg mb-4">
@@ -92,7 +87,6 @@ const AboutUs: React.FC = () => {
         </div>
       </section>
 
-      {/* Заклик до дії */}
       <CallWidget />
     </div>
   );

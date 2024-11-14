@@ -15,7 +15,7 @@ const getChatIdByUsername = async (username: string): Promise<number | null> => 
       }
     }
 
-    return null;
+    return null; // Якщо ID чату не знайдено
   } catch (err) {
     console.error('Error fetching chat ID:', err);
     return null;

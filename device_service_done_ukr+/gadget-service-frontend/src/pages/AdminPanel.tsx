@@ -24,13 +24,12 @@ const AdminPanel: React.FC = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) {
-      navigate('/login');  // Redirect if no token
+      navigate('/login'); 
     } else {
-      // Fetch messages and calls
       fetchMessages(token);
       fetchCalls(token);
     }
-  }, [navigate,fetchMessages, fetchCalls]);  // Add dependency for `isAuthenticated` if required
+  }, [navigate,fetchMessages, fetchCalls]);  
   
   
   
@@ -38,7 +37,6 @@ const AdminPanel: React.FC = () => {
   //   return <div>Доступ заборонено. Будь ласка, увійдіть в систему.</div>;
   // }
 
-  // Handlers for adding and updating Call Requests
   const handleAddCall = () => {
     const newCallRequest = {
       name: newCallData.name,
@@ -100,7 +98,6 @@ const AdminPanel: React.FC = () => {
     }
   };
 
-  // Handlers for adding and updating Messages
   const handleAddMessage = () => {
     const newMessage = {
       name: newMessageData.name,
@@ -152,7 +149,6 @@ const AdminPanel: React.FC = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Адмін-панель</h1>
 
-      {/* Add Call Request Form */}
       <div>
         <h2 className="text-xl font-semibold mb-2">Додати запит на дзвінок</h2>
         <input
@@ -174,7 +170,6 @@ const AdminPanel: React.FC = () => {
         </button>
       </div>
 
-      {/* Edit Call Request Form */}
       {editCall_id && (
         <div>
           <h2 className="text-xl font-semibold mb-2">Редагувати запит на дзвінок</h2>
@@ -198,7 +193,6 @@ const AdminPanel: React.FC = () => {
         </div>
       )}
 
-      {/* Call Requests Table */}
       <h2 className="text-xl font-semibold mb-2">Запити на дзвінки</h2>
       <table className="w-full border-collapse border border-gray-300 mb-4">
         <thead>
@@ -227,7 +221,6 @@ const AdminPanel: React.FC = () => {
         </tbody>
       </table>
 
-      {/* Add Message Form */}
       <div>
         <h2 className="text-xl font-semibold mb-2">Додати повідомлення</h2>
         <input
@@ -255,7 +248,6 @@ const AdminPanel: React.FC = () => {
         </button>
       </div>
 
-      {/* Edit Message Form */}
       {editMessage_id && (
         <div>
           <h2 className="text-xl font-semibold mb-2">Редагувати повідомлення</h2>
@@ -285,7 +277,6 @@ const AdminPanel: React.FC = () => {
         </div>
       )}
 
-      {/* Messages Table */}
       <h2 className="text-xl font-semibold mb-2">Повідомлення</h2>
       <table className="w-full border-collapse border border-gray-300 mb-4">
         <thead>

@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 const Home: React.FC = () => {
   return (
     <div>
-      {/* Головна секція */}
       <section className="bg-gray-100 py-12">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-bold mb-4">Ласкаво просимо до Gadget Service</h2>
@@ -18,7 +17,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Секція послуг */}
       <section className="bg-white py-12">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-8">Наші послуги</h2>
@@ -48,7 +46,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Секція "Чому обирають нас?" */}
       <section className="bg-blue-50 py-12">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8">Чому обирають нас?</h2>
@@ -69,7 +66,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Секція відгуків */}
       <section className="bg-white py-12">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-8">Що кажуть наші клієнти</h2>
@@ -96,7 +92,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Контактна секція */}
       <section className="bg-blue-100 py-12">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Зв'яжіться з нами</h2>
@@ -107,7 +102,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* CallWidget */}
       <CallWidget />
     </div>
   );

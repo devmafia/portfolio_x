@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-// import { sendCallRequestToTelegram } from '../services/telegramBot';  // Імпортуємо функцію
+// import { sendCallRequestToTelegram } from '../services/telegramBot';
 
 interface CallModalProps {
   closeModal: () => void;
@@ -26,17 +26,15 @@ const CallModal: React.FC<CallModalProps> = ({ closeModal }) => {
     setError(null);
 
     try {
-      // Надсилання даних на сервер
       await axios.post('http://localhost:5000/api/call-requests/create', {
         name,
         phone,
       });
       alert("Запит на дзвінок був надісланий")
 
-      // Надсилання запиту на дзвінок до Телеграм
       //await sendCallRequestToTelegram(name, phone);
 
-      closeModal();  // Закриття модального вікна після успішного запиту
+      closeModal();
     } catch (err) {
       setError('Щось пішло не так, спробуйте знову.');
     } finally {

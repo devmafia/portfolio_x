@@ -2,13 +2,11 @@
 import { Request, Response } from 'express';
 import Message from '../models/Message';
 
-// Create message
 export const createMessage = async (req: Request, res: Response) => {
   const { name, email, message } = req.body;
   console.log("Request body:", req.body);
 
   try {
-    // _id will be generated automatically
     const newMessage = new Message({ name, email, message });
     console.log("Generated UUID:", newMessage._id);
     const savedM = await newMessage.save();
@@ -19,7 +17,6 @@ export const createMessage = async (req: Request, res: Response) => {
   }
 };
 
-// Get all messages
 export const getMessages = async (req: Request, res: Response) => {
   try {
     const messages = await Message.find();
@@ -29,7 +26,6 @@ export const getMessages = async (req: Request, res: Response) => {
   }
 };
 
-// Delete message
 export const deleteMessage = async (req: Request, res: Response) => {
   try {
     await Message.findByIdAndDelete(req.params.id);
@@ -39,7 +35,6 @@ export const deleteMessage = async (req: Request, res: Response) => {
   }
 };
 
-// Update message
 export const updateMessage = async (req: Request, res: Response) => {
   const { id } = req.params;
   const { name, email, message } = req.body;
@@ -48,7 +43,7 @@ export const updateMessage = async (req: Request, res: Response) => {
     const updatedMessage = await Message.findByIdAndUpdate(
       id,
       { name, email, message },
-      { new: true, runValidators: true } // Return the updated document and run validators
+      { new: true, runValidators: true } 
     );
 
     if (!updatedMessage) {

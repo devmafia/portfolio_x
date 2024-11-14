@@ -2,7 +2,7 @@ import mongoose, { Schema, Document } from 'mongoose';
 import { v4 as uuidv4 } from 'uuid';
 
 interface IMessage extends Document {
-  _id: string;  // Define _id as a string to accept UUID
+  _id: string;
   name: string;
   email: string;
   message: string;
@@ -11,8 +11,8 @@ interface IMessage extends Document {
 
 const messageSchema: Schema = new Schema({
   _id: {
-    type: String,  // _id as a string (UUID)
-    default: uuidv4,  // Default value is a generated UUID
+    type: String,
+    default: uuidv4,
   },
   name: { type: String, required: true },
   email: { type: String, required: true },

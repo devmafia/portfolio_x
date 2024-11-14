@@ -24,7 +24,6 @@ export const MessageProvider: React.FC<{ children: ReactNode }> = ({ children })
   const [messages, setMessages] = useState<Message[]>([]);
 
   const fetchMessages = useCallback(async (token: string) => {
-    // Fetch Messages
   try {
   const messageResponse = await axios.get('http://localhost:5000/api/messages', {
     headers: {
@@ -34,20 +33,17 @@ export const MessageProvider: React.FC<{ children: ReactNode }> = ({ children })
 
   console.log('Messages Response:', messageResponse.data);
 
-    // Update state only once when data is fetched
    setMessages(messageResponse.data);
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 }, []);
 
-  // Add a message (assuming 'id' comes from backend)
   const addMessage = (msg: Message) => {
     //console.log(msg)
     setMessages((prevMessages) => [...prevMessages, msg]);
   };
 
-  // Update a message by _id
   const updateMessage = (_id: string, updatedData: Omit<Message, '_id'>) => {
     setMessages((prevMessages) =>
       prevMessages.map((msg) =>
@@ -56,7 +52,6 @@ export const MessageProvider: React.FC<{ children: ReactNode }> = ({ children })
     );
   };
 
-  // Remove a message by id
   const removeMessage = (_id: string) => {
     setMessages((prevMessages) => prevMessages.filter((msg) => msg._id !== _id));
   };

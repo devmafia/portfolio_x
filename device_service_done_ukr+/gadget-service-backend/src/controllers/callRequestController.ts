@@ -1,23 +1,19 @@
 // src/controllers/callRequestController.ts
 import { Request, Response } from 'express';
 import CallRequest from '../models/CallRequest';
-import { sendCallRequestToTelegram } from '../services/telegramBot'; // Import the Telegram bot service
+import { sendCallRequestToTelegram } from '../services/telegramBot';
 
-// Create call request
 export const createCallRequest = async (req: Request, res: Response) => {
   const { name, phone } = req.body;
   console.log("enter_call_req");
 
   try {
-    // Create a new call request document
     const newCallRequest = new CallRequest({ name, phone });
     console.log("Generated UUID:", newCallRequest._id);
     const savedCallRequest = await newCallRequest.save();
 
-    // Send the call request to Telegram via the bot
     //await sendCallRequestToTelegram(name, phone);
 
-    // Send the saved call request data as a response
     res.status(201).json(savedCallRequest);
   } catch (error) {
     console.error("Error while creating a call request:", error);
@@ -25,10 +21,8 @@ export const createCallRequest = async (req: Request, res: Response) => {
   }
 };
 
-// Get all call requests
 export const getCallRequests = async (req: Request, res: Response) => {
   try {
-    // Retrieve all call requests from the database
     const callRequests = await CallRequest.find();
     res.status(200).json(callRequests);
   } catch (error) {
@@ -37,10 +31,8 @@ export const getCallRequests = async (req: Request, res: Response) => {
   }
 };
 
-// Delete call request
 export const deleteCallRequest = async (req: Request, res: Response) => {
   try {
-    // Delete the call request by its ID
     await CallRequest.findByIdAndDelete(req.params.id);
     res.status(200).json({ message: 'Call request deleted' });
   } catch (error) {
@@ -49,18 +41,16 @@ export const deleteCallRequest = async (req: Request, res: Response) => {
   }
 };
 
-// Update CallRequest
 export const updateCallRequest = async (req: Request, res: Response) => {
   const { id } = req.params;
   const { name, phone } = req.body;
   console.log('in controller');
 
   try {
-    // Update the call request by its ID
     const updatedCallRequest = await CallRequest.findByIdAndUpdate(
       id,
       { name, phone },
-      { new: true, runValidators: true } // Return the updated document and run validators
+      { new: true, runValidators: true }
     );
 
     if (!updatedCallRequest) {

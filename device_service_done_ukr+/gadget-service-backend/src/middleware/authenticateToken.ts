@@ -10,12 +10,11 @@ export const authenticateToken = (req: Request, res: Response, next: NextFunctio
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
 
-  if (token == null) return res.sendStatus(401); // Unauthorized
+  if (token == null) return res.sendStatus(401);
 
   jwt.verify(token, SECRET_KEY, (err, user: JwtPayload | string | undefined) => {
-    if (err) return res.sendStatus(403); // Forbidden
+    if (err) return res.sendStatus(403);
 
-    // Ensure that `user` is of type `UserPayload` if it's not a `string`
     if (typeof user !== 'string') {
       req.user = user as UserPayload;
     } else {

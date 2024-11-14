@@ -10,13 +10,11 @@ const Contact: React.FC = () => {
       <h2 className="text-3xl font-bold mb-4 text-center">Get in Touch with Us</h2>
       <p className="text-lg mb-6 text-center">If you have any questions or need help with your gadgets, feel free to reach out to us. We are here to help!</p>
 
-      {/* Contact Form Section */}
       <section className="mb-10">
         <h3 className="text-2xl font-semibold mb-4">Send us a Message</h3>
         <ContactForm />
       </section>
 
-      {/* Additional Contact Information */}
       <section className="bg-gray-100 p-6 rounded-lg shadow-lg mb-10">
         <h3 className="text-2xl font-semibold mb-4">Our Contact Details</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -39,7 +37,6 @@ const Contact: React.FC = () => {
         </div>
       </section>
 
-      {/* Map Section */}
       <section className="mb-10">
         <h3 className="text-2xl font-semibold mb-4">Visit Us</h3>
         <iframe
@@ -53,7 +50,6 @@ const Contact: React.FC = () => {
         />
       </section>
 
-      {/* Call Widget */}
       <CallWidget />
     </div>
   );
